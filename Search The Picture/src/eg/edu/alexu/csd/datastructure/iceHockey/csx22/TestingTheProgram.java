@@ -81,7 +81,7 @@ public class TestingTheProgram {
 				"11111"
 				};
 		Point [] centerPoints6 = {};
-		assertEquals(centerPoints6,h.findPlayers(photo6,3,1));
+		assertEquals(centerPoints6,h.findPlayers(photo6,1,100));
 		String [] photo7 ={
 				"11111",
 				"11111",
@@ -89,8 +89,9 @@ public class TestingTheProgram {
 				};
 		Point [] centerPoints7 = { new Point (5,3)};
 		assertEquals(centerPoints7,h.findPlayers(photo7,1,4));
-		String [] photo8 ={};
+		String [] photo8 ={};            // testing a null/empty image 
 		Point [] centerPoints8 = {};
+		
 		try {
 			assertEquals(centerPoints8,h.findPlayers(photo8,1,4));
 		}catch (Exception x) {
