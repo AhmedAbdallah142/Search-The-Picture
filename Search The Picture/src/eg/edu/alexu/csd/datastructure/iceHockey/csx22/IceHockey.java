@@ -32,6 +32,7 @@ public class IceHockey implements IPlayersFinder{
 		}
 		Point [] points = new Point [temp];
 		System.arraycopy(centerPoints, 0, points, 0, temp);
+		sortpoints(points);
 		return points ;
 	}
 	
@@ -58,5 +59,24 @@ public class IceHockey implements IPlayersFinder{
 			check(y-1,x,photo,team);
 		}
 	}
-
+	public static void sortpoints (Point [] points) {
+		Point temp ;
+		if (points.length!=0) {
+			for (int i = 0;i<points.length-1;i++) {
+				for (int j=i+1;j<points.length;j++) {
+					if (points[i].x>points[j].x) {
+						temp = points[i];
+						points[i] = points[j];
+						points[j] = temp ;
+					}else if (points[i].x==points[j].x) {
+						if (points[i].y>points[j].y) {
+							temp = points[i];
+							points[i] = points[j];
+							points[j] = temp ;
+						}
+					}
+				}
+			}
+		}
+	}
 }
