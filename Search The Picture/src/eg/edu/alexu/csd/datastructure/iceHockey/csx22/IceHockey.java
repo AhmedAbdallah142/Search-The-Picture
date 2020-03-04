@@ -7,14 +7,14 @@ public class IceHockey implements IPlayersFinder{
 	private static int ymin ,ymax,xmin,xmax,counter;
 	@Override
 	public Point[] findPlayers(String[] photo, int team, int threshold) {
-		Point [] centerPoints = new Point [2500];//the array of points that i used to save the center points of the players 
+		Point [] centerPoints = new Point [2500];      //the array of points that i used to save the center points of the players 
+		int temp = 0;     //temporary variable to save in the array of points
+		if (photo.length!=0) {
 		char [][] tempArr = new char [photo.length][photo[0].length()];
 		for (int i = 0;i<photo.length;i++) {
 			tempArr[i]=photo[i].toCharArray();	
-		}
-		int temp = 0;//temporary variable to save in the array of points 
-		int nbox=(threshold+3)/4;//the least number of boxes that refer to a player
-		if (photo.length!=0) {
+		} 
+		int nbox=(threshold+3)/4;         //the least number of boxes that refer to a player
 			for (int y=0;y<tempArr.length;y++) {
 				for (int x=0;x<tempArr[y].length;x++) {
 					ymin=50;ymax=0;xmin=50;xmax=0;counter=0;
@@ -29,7 +29,7 @@ public class IceHockey implements IPlayersFinder{
 					}
 				}
 			}
-		}
+		}else throw new RuntimeException ("this image is null/empty image");
 		Point [] points = new Point [temp];
 		System.arraycopy(centerPoints, 0, points, 0, temp);
 		sortpoints(points);

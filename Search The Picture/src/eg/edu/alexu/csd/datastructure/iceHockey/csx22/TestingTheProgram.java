@@ -89,6 +89,14 @@ public class TestingTheProgram {
 				};
 		Point [] centerPoints7 = { new Point (5,3)};
 		assertEquals(centerPoints7,h.findPlayers(photo7,1,4));
+		String [] photo8 ={};
+		Point [] centerPoints8 = {};
+		try {
+			assertEquals(centerPoints8,h.findPlayers(photo8,1,4));
+		}catch (Exception x) {
+			System.out.println(x.getMessage());
+		}
+		
 	}
 
 }
