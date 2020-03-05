@@ -12,6 +12,8 @@ public class TestingTheProgram {
 	@Test
 	public void test() {
 		IceHockey h = new IceHockey();
+		//------------------------------------------------------------------------------------------------\\
+					//Random test
 		String [] photo1 ={
 				"8D88888J8L8E888",
 				"88NKMG8N8E8JI88",
@@ -34,6 +36,8 @@ public class TestingTheProgram {
 				new Point (22,20),new Point (23,26),new Point (24,15),new Point (27,2),new Point (28,26),new Point (29,16)};
 					
 		assertEquals(centerPoints1,h.findPlayers(photo1,8, 9));
+		//------------------------------------------------------------------------------------------------\\
+					//Random test
 		String []photo2 = {
 				"33JUBU33",
 				"3U3O4433",
@@ -45,6 +49,8 @@ public class TestingTheProgram {
 		Point [] centerPoints2 = {new Point (4,5),new Point (13,9),new Point (14,2)};
 					
 		assertEquals(centerPoints2,h.findPlayers(photo2,3,16));
+		//------------------------------------------------------------------------------------------------\\
+					//Random test
 		String [] photo3 ={
 				"44444H44S4",
 				"K444K4L444",
@@ -59,6 +65,8 @@ public class TestingTheProgram {
 				};
 		Point [] centerPoints3 = {new Point (3,8),new Point (4,16),new Point (5,4),new Point (16,3),new Point (16,17),new Point (17,9)};					
 		assertEquals(centerPoints3,h.findPlayers(photo3,4,16));
+		//------------------------------------------------------------------------------------------------\\
+					//testing if the two player have the same center point
 		String [] photo4 ={
 				"11111",
 				"1AAA1",
@@ -68,20 +76,26 @@ public class TestingTheProgram {
 				};
 		Point [] centerPoints4 = {new Point (5,5),new Point (5,5)};
 		assertEquals(centerPoints4,h.findPlayers(photo4,1,3));
-		String [] photo5 ={    // testing image with no required players 
+		//------------------------------------------------------------------------------------------------\\
+					// testing image with wrong required players
+		String [] photo5 ={     
 				"11111",
 				"11111",
 				"11111"
 				};
 		Point [] centerPoints5 = {};
 		assertEquals(centerPoints5,h.findPlayers(photo5,3,1));
-		String [] photo6 ={ // testing image with area smaller than required 
+		//------------------------------------------------------------------------------------------------\\
+					// testing image with area smaller than required
+		String [] photo6 ={  
 				"11111",
 				"11111",
 				"11111"
 				};
 		Point [] centerPoints6 = {};
 		assertEquals(centerPoints6,h.findPlayers(photo6,1,100));//smallest area required in image = 100
+		//------------------------------------------------------------------------------------------------\\
+					// testing a null/empty image  
 		String [] photo7 ={ 
 				"11111",
 				"11111",
@@ -89,7 +103,7 @@ public class TestingTheProgram {
 				};
 		Point [] centerPoints7 = { new Point (5,3)};
 		assertEquals(centerPoints7,h.findPlayers(photo7,1,4));
-		String [] photo8 ={};            // testing a null/empty image 
+		String [] photo8 ={};            
 		Point [] centerPoints8 = {};
 		
 		try {
@@ -97,6 +111,8 @@ public class TestingTheProgram {
 		}catch (Exception x) {
 			System.out.println(x.getMessage());
 		}
+		//------------------------------------------------------------------------------------------------\\
+					//testing if the user entered a wrong threshold 
 		String [] photo9 ={
 				"44444H44S4",
 				"K444K4L444",
@@ -115,8 +131,9 @@ public class TestingTheProgram {
 		}catch (Exception x) {
 			System.out.println(x.getMessage());
 		}
-		
-		String [] photo10 ={
+		//------------------------------------------------------------------------------------------------\\
+		//testing if the user entered a wrong team number 
+		String [] photo10 ={    
 				"44444H44S4",
 				"K444K4L444",
 				"4LJ44T44XH",
