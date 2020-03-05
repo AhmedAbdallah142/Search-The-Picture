@@ -68,21 +68,21 @@ public class TestingTheProgram {
 				};
 		Point [] centerPoints4 = {new Point (5,5),new Point (5,5)};
 		assertEquals(centerPoints4,h.findPlayers(photo4,1,3));
-		String [] photo5 ={
+		String [] photo5 ={    // testing image with no required players 
 				"11111",
 				"11111",
 				"11111"
 				};
 		Point [] centerPoints5 = {};
 		assertEquals(centerPoints5,h.findPlayers(photo5,3,1));
-		String [] photo6 ={
+		String [] photo6 ={ // testing image with area smaller than required 
 				"11111",
 				"11111",
 				"11111"
 				};
 		Point [] centerPoints6 = {};
-		assertEquals(centerPoints6,h.findPlayers(photo6,1,100));
-		String [] photo7 ={
+		assertEquals(centerPoints6,h.findPlayers(photo6,1,100));//smallest area required in image = 100
+		String [] photo7 ={ 
 				"11111",
 				"11111",
 				"11111"
