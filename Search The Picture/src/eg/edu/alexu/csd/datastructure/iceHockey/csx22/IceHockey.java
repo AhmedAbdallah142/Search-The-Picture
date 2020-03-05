@@ -9,7 +9,7 @@ public class IceHockey implements IPlayersFinder{
 	public Point[] findPlayers(String[] photo, int team, int threshold) {
 		Point [] centerPoints = new Point [2500];      //the array of points that i used to save the center points of the players 
 		int temp = 0;     //temporary variable to save in the array of points
-		if (photo.length!=0) {
+		if (photo.length!=0 && team>= 0 && team <=9 && threshold>0) {
 		char [][] tempArr = new char [photo.length][photo[0].length()];
 		for (int i = 0;i<photo.length;i++) {
 			tempArr[i]=photo[i].toCharArray();	
@@ -29,14 +29,16 @@ public class IceHockey implements IPlayersFinder{
 					}
 				}
 			}
-		}else throw new RuntimeException ("this image is null/empty image");
+		}else throw new RuntimeException ("this image is null/empty image or the user entered wrong information about team and threshold"); 
+																				// throw an exception when the image is null/empty 
+																			//or the user enter wrong information about team number or threshold
 		Point [] points = new Point [temp];
 		System.arraycopy(centerPoints, 0, points, 0, temp);
 		sortpoints(points);
 		return points ;
 	}
 	
-	public static void check (int y,int x,char[][] photo,int team) {
+	public static void check (int y,int x,char[][] photo,int team) { // check if the team players exist in the photo 
 		if (y<ymin)ymin=y;
 		if (y>ymax)ymax=y;
 		if (x<xmin)xmin=x;
@@ -59,7 +61,7 @@ public class IceHockey implements IPlayersFinder{
 			check(y-1,x,photo,team);
 		}
 	}
-	public static void sortpoints (Point [] points) {
+	public static void sortpoints (Point [] points) {           // sorting the output of center points of  players
 		Point temp ;
 		if (points.length!=0) {
 			for (int i = 0;i<points.length-1;i++) {
