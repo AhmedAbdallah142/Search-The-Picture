@@ -97,7 +97,43 @@ public class TestingTheProgram {
 		}catch (Exception x) {
 			System.out.println(x.getMessage());
 		}
+		String [] photo9 ={
+				"44444H44S4",
+				"K444K4L444",
+				"4LJ44T44XH",
+				"444O4VIF44",
+				"44C4D4U444",
+				"4V4Y4KB4M4",
+				"G4W4HP4O4W",
+				"4444ZDQ4S4",
+				"4BR4Y4A444",
+				"4G4V4T4444"
+				};
+		Point [] centerPoints9 = {};
+		try {
+			assertEquals(centerPoints9,h.findPlayers(photo9,4,-16));
+		}catch (Exception x) {
+			System.out.println(x.getMessage());
+		}
 		
+		String [] photo10 ={
+				"44444H44S4",
+				"K444K4L444",
+				"4LJ44T44XH",
+				"444O4VIF44",
+				"44C4D4U444",
+				"4V4Y4KB4M4",
+				"G4W4HP4O4W",
+				"4444ZDQ4S4",
+				"4BR4Y4A444",
+				"4G4V4T4444"
+				};
+		Point [] centerPoints10 = {};
+		try {
+			assertEquals(centerPoints10,h.findPlayers(photo10,14,16));
+		}catch (Exception x) {
+			System.out.println(x.getMessage());
+		}
 	}
 
 }
